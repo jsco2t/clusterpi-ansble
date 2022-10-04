@@ -1,0 +1,28 @@
+---
+- hosts: all
+  become: true
+
+  tasks:
+    - name: Update os packages
+      apt:
+        upgrade: full
+        state: latest
+        update_cache: true
+        autoremove: true
+
+    - name: Check if reboot required
+      stat:
+        path: /var/run/reboot-required
+      register: reboot_required_file
+
+    - name: get random sleep delay
+      set_fact:
+        random_number: "{{ 30 | random(step=5) }}"
+        when: reboot_required_file.stat.exists == true
+
+    - name: Reboot if required
+      reboot:
+        reboot_timeout: 300
+      when: reboot_required_file.stat.exists == true
+      delay: "{{ random_number }}" # this won't make sure at least one node is running - but it should stagger the reboots
+
