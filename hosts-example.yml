@@ -1,0 +1,10 @@
+---
+all:
+  children:
+    cluster:
+      hosts:
+        somehost-[01:99].local
+      vars:
+        ansible_connection: ssh
+        ansible_user: some_user
+
