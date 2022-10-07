@@ -14,3 +14,13 @@
         state: started
         enabled: yes
 
+    - name: Install baseline packages
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - htop
+        - bat
+        - curl
+
+
