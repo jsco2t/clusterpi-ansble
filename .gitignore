@@ -3,3 +3,5 @@ hosts.ini
 hosts.yaml
 hosts.yml
 
+# ansible roles to not sync
+roles/geerlingguy.*

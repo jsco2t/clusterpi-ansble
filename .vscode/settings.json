@@ -1,0 +1,14 @@
+{
+    "yaml.schemas": {
+        "https://raw.githubusercontent.com/ansible/schemas/main/f/ansible.json#/$defs/playbook": [
+            "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/cluster.yml",
+            "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/baseline-setup.yml",
+            "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/deb-update.yml"
+        ],
+        "https://raw.githubusercontent.com/ansible/schemas/main/f/ansible-inventory.json": [
+            "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/hosts.yml",
+            "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/hosts-example.yml"
+        ],
+        "https://raw.githubusercontent.com/ansible/schemas/main/f/ansible-vars.json": "file:///Users/jason/Developer/Sources/personal/clusterpi-ansble/vars/cluster.yml"
+    }
+}

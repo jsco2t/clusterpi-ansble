@@ -1,0 +1,5 @@
+---
+# docker config
+docker_install_compose: false
+# docker_users: # defined in hosts.yml
+#   - someuser

@@ -1,0 +1,12 @@
+{# Copyright (c) 2018 Jeff Geerling under MIT License, from geerlingguy.kubernetes #}
+Package: kubectl
+Pin: version {{ kubernetes_version }}.*
+Pin-Priority: 1000
+
+Package: kubeadm
+Pin: version {{ kubernetes_version }}.*
+Pin-Priority: 1000
+
+Package: kubelet
+Pin: version {{ kubernetes_version }}.*
+Pin-Priority: 1000

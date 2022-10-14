@@ -1,0 +1,44 @@
+---
+# - hosts: all
+# # - hosts:
+# #   - clusterpi-01.local
+# #   - clusterpi-02.local
+#   become: true
+
+#   vars_files:
+#     - "vars/cluster.yml"
+
+#   roles:
+#   #- geerlingguy.security
+#   - geerlingguy.swap
+#   #- geerlingguy.docker
+#   - geerlingguy.kubernetes
+
+- hosts:
+  - clusterpi-01.local
+  become: true
+
+  vars_files:
+    - "vars/cluster.yml"
+    - "vars/control-plane.yml"
+
+  roles:
+  #- geerlingguy.security
+  #- geerlingguy.swap
+  #- geerlingguy.docker
+  - geerlingguy.kubernetes
+
+- hosts:
+  - clusterpi-02.local
+  - clusterpi-03.local
+  become: true
+
+  vars_files:
+    - "vars/cluster.yml"
+    - "vars/nodes.yml"
+
+  roles:
+  #- geerlingguy.security
+  #- geerlingguy.swap
+  #- geerlingguy.docker
+  - geerlingguy.kubernetes

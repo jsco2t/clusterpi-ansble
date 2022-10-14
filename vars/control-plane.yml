@@ -1,0 +1,15 @@
+---
+# k8s config
+kubernetes_role: master
+kubernetes_kubeadm_kubelet_config_file_path: '/etc/kubernetes/kubeadm-kubelet-config.yaml'
+kubernetes_config_init_configuration:
+  localAPIEndpoint:
+    advertiseAddress: "{{ kubernetes_apiserver_advertise_address }}"
+
+kubernetes_config_cluster_configuration:
+  networking:
+    podSubnet: "{{ kubernetes_pod_network.cidr }}"
+  kubernetesVersion: "{{ kubernetes_version_kubeadm }}"
+
+kubernetes_config_kubelet_configuration:
+  cgroupDriver: systemd

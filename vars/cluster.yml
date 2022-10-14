@@ -1,0 +1,25 @@
+---
+# swap config
+swap_file_state: absent
+
+# k8s config
+kubernetes_packages:
+  - name: kubelet
+    state: present
+  - name: kubectl
+    state: present
+  - name: kubeadm
+    state: present
+  - name: kubernetes-cni
+    state: present
+kubernetes_version: '1.25'
+kubernetes_allow_pods_on_master: false
+kubernetes_apiserver_advertise_address: 192.168.1.86
+kubernetes_apt_ignore_key_error: false
+kubernetes_apt_release_channel: main
+# Note that xenial repo is used for all Debian derivatives at this time.
+kubernetes_apt_repository: "deb http://apt.kubernetes.io/ kubernetes-xenial {{ kubernetes_apt_release_channel }}"
+kubernetes_pod_network:
+  cni: 'calico'
+  cidr: '10.244.0.0/16'
+kubernetes_ignore_preflight_errors: 'all'
